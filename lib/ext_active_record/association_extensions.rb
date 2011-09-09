@@ -17,9 +17,16 @@ module ActiveRecord
       end
       
     end
-  end
-  
+	end
+
   module Associations
+		module Builder
+			[ HasMany, BelongsTo, HasAndBelongsToMany, HasOne ].each do |c|
+				c.valid_options += [ :mirror_db_connection ]
+			end
+
+		end
+
     module ClassMethods
       
       def create_has_many_reflection(association_id, options, &extension)
