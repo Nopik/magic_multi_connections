@@ -68,7 +68,7 @@ module MagicMultiConnection::Connected
             new_options[:class_name] = new_class_name
             case reflection.macro
             when :has_one, :has_many, :belongs_to
-              new_options[:foreign_key] ||= reflection.primary_key_name
+              new_options[:foreign_key] ||= reflection.foreign_key
             when :has_and_belongs_to_many
               
             end
